@@ -33,9 +33,17 @@ function directory
     return 1
   end
 
+  # Setup flags for absolute_path.
+
+  set --local absolute_path_options
+
+  if set --query resolve_symbolic_links
+    set absolute_path_options $absolute_path_options '--resolve-symbolic-links'
+  end
+
   # Write directory of file to standard output.
 
-  echo (dirname (fish absolute_path.fish --file-name $file_name))
+  echo (dirname (fish absolute_path.fish $absolute_path_options --file-name $file_name))
 end
 
 directory $argv
