@@ -54,5 +54,3 @@ function CLI_options
   end
 
 end
-
-CLI_options $argv
