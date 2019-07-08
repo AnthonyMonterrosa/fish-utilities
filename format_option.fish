@@ -17,14 +17,8 @@ function format_option
 
   echo "--name"
   echo $_flag_name
-
+  
   echo "--requires-value"
-  if set --query _flag_requires_value
-    echo true
-  else
-    echo false
-  end
+  set --query _flag_requires_value; and echo true; or echo false
 
 end
-
-format_option $argv
